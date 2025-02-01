@@ -46,16 +46,13 @@ The streaks motivate users to maintain accuracy and improve their scores.
 	•	Personalized Messages: When the quiz ends, based on the user’s accuracy, a customized congratulatory message is displayed. The messages vary depending on the performance (e.g., “Outstanding!”, “Great Job!”, “Keep Going!”, etc.).
 
 **3. User-Friendly Interface**
-
 The UI is designed to be intuitive and easy to navigate. All features, including the quiz interface, dark/light theme toggle, and streak tracking, are integrated seamlessly for a smooth user experience.
-
 Technologies Used
 	**•	React**: For building the frontend.
 	**•	Vite**: For fast development with a modern build tool.
 	**•	Tailwind CSS**: For styling and creating responsive layouts.
 	**•	AllOrigins**: To resolve CORS issues with API requests.
-
-
+ 
 **Future Improvements**
 	•	More quizzes and categories: Expanding the quiz database with different topics.
 	•	User profiles and score tracking: Adding a way for users to track their scores across multiple sessions.
