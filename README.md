@@ -44,7 +44,6 @@ The app allows users to start a quiz and track their progress. Some key gamifica
 	•	7 streak
 The streaks motivate users to maintain accuracy and improve their scores.
 	•	Personalized Messages: When the quiz ends, based on the user’s accuracy, a customized congratulatory message is displayed. The messages vary depending on the performance (e.g., “Outstanding!”, “Great Job!”, “Keep Going!”, etc.).
-
 **3. User-Friendly Interface**
 The UI is designed to be intuitive and easy to navigate. All features, including the quiz interface, dark/light theme toggle, and streak tracking, are integrated seamlessly for a smooth user experience.
 Technologies Used
