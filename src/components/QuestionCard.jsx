@@ -7,17 +7,19 @@ const QuestionCard = ({ question, onAnswerSelect, selectedAnswer, answerStatus }
   useEffect(() => {
     if (answerStatus === "incorrect") {
       setShaking(true);
-      // console.log("Shaking");
-      setTimeout(() => setShaking(false), 500);
+      setTimeout(() => setShaking(false), 500); // Reset shaking animation after 500ms
     }
   }, [answerStatus]);
 
   const handleAnswerSelect = (option) => {
     const startTime = Date.now();
-    onAnswerSelect(option);
+    onAnswerSelect(option); // This will set the selectedAnswer and possibly the answerStatus
   };
 
   const shakingStyle = shaking ? { animation: "shake 0.5s ease-in-out" } : {};
+
+  // Only show feedback if answerStatus is not null (answer has been marked)
+  const isAnswered = selectedAnswer !== null;
 
   return (
     <div className="bg-[#c8d8e4] p-6 rounded-3xl shadow-xl max-w-3xl mx-auto mb-8" style={shakingStyle}>
@@ -35,14 +37,14 @@ const QuestionCard = ({ question, onAnswerSelect, selectedAnswer, answerStatus }
                   ? "bg-green-500 text-white border-4 border-green-700"
                   : "bg-red-500 text-white border-4 border-red-700"
                 : "bg-[#c8d8e4] border-2 border-[#2b6777] hover:bg-[#2b6777] hover:text-white"
-            }`}
-          >
+            }`}>
             {option.description}
           </button>
         ))}
       </div>
 
-      {answerStatus && (
+      {/* Only show feedback if the question has been answered */}
+      {isAnswered && (
         <div
           className={`p-3 mt-4 rounded-md text-center text-white ${
             answerStatus === "correct" ? "bg-green-500" : "bg-red-500"

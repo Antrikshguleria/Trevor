@@ -1,10 +1,10 @@
 @import "tailwindcss";
 @layer base {
-    html,
-    body {
-      background-color: #2b6777; /* Change the background color globally */
-    }
+  .dark {
+    /* Add dark mode styles here */
+    background-color: #313E51; /* example */
   }
+}
   @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-10px); }

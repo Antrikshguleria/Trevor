@@ -96,7 +96,7 @@ const Home = () => {
     }));
 
     if (isCorrect) {
-      setAnswerStatus('correct');
+      setAnswerStatus("correct");
       setCorrectAnswers((prev) => prev + 1);
       setStreak((prev) => prev + 1);
       setScore((prevScore) => prevScore + parseInt(quizData.correct_answer_marks, 10));
@@ -119,7 +119,7 @@ const Home = () => {
       }
 
     } else {
-      setAnswerStatus('incorrect');
+      setAnswerStatus("incorrect");
       setWrongAnswers((prev) => prev + 1);
       setStreak(0);
       setScore((prevScore) => prevScore - parseInt(quizData.negative_marks, 10));
@@ -183,6 +183,7 @@ const Home = () => {
             <ProgressBarCard
               totalQuestions={quizData.questions.length}
               count={counter}
+              marked={correctAnswers+wrongAnswers}
             />
           </div>
           <div className="flex justify-between items-center mb-4">
@@ -211,34 +212,39 @@ const Home = () => {
 
           {achievements.length > 0 && (
             <div className="mt-6 text-center">
-            <h4 className="text-2xl font-semibold text-teal-600 mb-3">  {/* Changed to teal */}
-              Achievements Unlocked:
-            </h4>
-            <ul className="space-y-2">
-              {achievements.map((achievement, index) => (
-                <li
-                  key={index}
-                  className="flex items-center justify-center text-lg font-medium text-green-600"
-                >
-                  <span className="mr-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-green-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 12l2 2 4-4M5 12l2 2 4-4M3 12l2 2 4-4"
-                      />
-                    </svg>
-                  </span>
-                {achievement}
-              </li>))}
-          </ul></div>)}
+  <h4 className="text-3xl font-semibold text-teal-600 mb-6">
+    Achievements Unlocked
+  </h4>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {achievements.map((achievement, index) => (
+      <div
+        key={index}
+        className="bg-white p-5 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-105"
+      >
+        <div className="flex items-center mb-3">
+          <span className="mr-3 text-teal-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-8 h-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 12l2 2 4-4M5 12l2 2 4-4M3 12l2 2 4-4"
+              />
+            </svg>
+          </span>
+          <span className="text-xl font-medium text-gray-700">{achievement}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+        )}
           <div className="mt-6 flex justify-between items-center">
             <button
               onClick={handlePrevQuestion}

@@ -2,16 +2,28 @@ import React from 'react';
 import { FaTrophy, FaBullseye, FaMedal, FaRedoAlt } from 'react-icons/fa'; // Added more icons
 import Confetti from 'react-confetti'; // Import Confetti for party popper effect
 
-const ScoreCard = ({ correctAnswers, wrongAnswers, score, accuracy }) => {
+const ScoreCard = ({ correctAnswers, wrongAnswers, score, accuracy, totalQuestions }) => {
+  // Determine message based on score
+  let message;
+  if (accuracy == 100 ) {
+    message = "Outstanding! You nailed it!";
+  } else if (accuracy >= 70 && accuracy <= 90 ) {
+    message = "Congratulations! You scored really well!";
+  } else if (accuracy >= 50 && accuracy <= 60 ) {
+    message = "Keep it up! Don't lose hope, you're doing great!";
+  } else {
+    message = "Keep going! Every step counts, you'll do better next time!";
+  }
+
   return (
-    <div className="relative bg-[#2b6777] min-h-screen flex items-center justify-center">
+    <div className="relative min-h-screen flex items-center justify-center">
       {/* Party popper effect */}
       <Confetti recycle={false} numberOfPieces={200} />
 
       <div className="bg-[#c8d8e4] p-8 rounded-3xl shadow-xl max-w-3xl w-full mx-auto">
         <h2 className="text-3xl font-bold text-center mb-4 text-[#2b6777]">Quiz Results</h2>
         <div className="space-y-5">
-          <h1 className="text-5xl font-extrabold text-center text-[#2b6777]">Congratulations!</h1>
+          <h1 className="text-5xl font-extrabold text-center text-[#2b6777]">{message}</h1> {/* Displaying personalized message */}
           
           {/* Final score and accuracy */}
           <div className="flex justify-between items-center text-xl font-semibold">
